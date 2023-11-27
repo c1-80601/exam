@@ -1,15 +1,15 @@
-pipeline {
+ pipeline {
      agent any
- 
-     stages {
+  
+      stages {
          stage ('SCM') {
-             steps {
+               steps {
                  git branch: 'master', url: 'https://github.com/c1-80601/exam.git'
              }
          }
          stage ('docker login') {
              steps {
-                 sh 'dckr_pat_ZpaCWumdUSl9RU6rVM_fapH70k4 | /usr/bin/docker login -u pratik234 --password-stdin'
+                 sh 'echo dckr_pat_ZpaCWumdUSl9RU6rVM_fapH70k4 | /usr/bin/docker login -u pratik234 --password-stdin'
              }
          }
          stage ('docker build image') {
@@ -33,5 +33,5 @@ pipeline {
              }
          }
      }
-}
+ }
 
